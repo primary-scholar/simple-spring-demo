@@ -4,31 +4,59 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="" class="com.mimu.simple.spring.bean.cycledependency.ConstructorCycleDependencyAB_A">
-        <constructor-arg ref=""/>
+    <!--
+    对于 singleton 的实例解析，spring 不能解决 构造函数的循环依赖
+     -->
+    <!--<bean id="constructorCycleDependencyAB_A"
+          class="com.mimu.simple.spring.bean.cycledependency.ConstructorCycleDependencyAB_A">
+        <constructor-arg value="filed_A"/>
+        <constructor-arg ref="constructorCycleDependencyAB_B"/>
     </bean>
-    <bean id="" class="com.mimu.simple.spring.bean.cycledependency.ConstructorCycleDependencyAB_B">
-        <constructor-arg ref=""/>
+    <bean id="constructorCycleDependencyAB_B"
+          class="com.mimu.simple.spring.bean.cycledependency.ConstructorCycleDependencyAB_B">
+        <constructor-arg value="filed_B"/>
+        <constructor-arg ref="constructorCycleDependencyAB_A"/>
+    </bean>-->
+
+    <!--
+    对于 singleton 的实例解析，spring 可以解决 get set 方法的循环依赖
+     -->
+    <bean id="noneConstructorCycleDependencyAB_A"
+          class="com.mimu.simple.spring.bean.cycledependency.NoneConstructorCycleDependencyAB_A">
+        <property name="field" value="field_A"/>
+        <property name="dependencyAB_b" ref="noneConstructorCycleDependencyAB_B"/>
+    </bean>
+    <bean id="noneConstructorCycleDependencyAB_B"
+          class="com.mimu.simple.spring.bean.cycledependency.NoneConstructorCycleDependencyAB_B">
+        <property name="field" value="field_B"/>
+        <property name="dependencyAB_a" ref="noneConstructorCycleDependencyAB_A"/>
     </bean>
 
-    <bean id="" class="com.mimu.simple.spring.bean.cycledependency.NoneConstructorCycleDependencyAB_A">
-        <constructor-arg ref=""/>
-        <property name="" ref=""/>
-    </bean>
-    <bean id="" class="com.mimu.simple.spring.bean.cycledependency.NoneConstructorCycleDependencyAB_B">
-        <property name="" ref=""/>
-    </bean>
 
-    <bean id="" class="com.mimu.simple.spring.bean.cycledependency.NoneConstructorCycleDependencyAB_A"
+    <!--
+    对于 非 singleton 的实例解析，spring 不能解决 get set 方法的循环依赖
+     -->
+    <bean id="noneConstructorCycleDependencyAB_A_P"
+          class="com.mimu.simple.spring.bean.cycledependency.NoneConstructorCycleDependencyAB_A"
           scope="prototype">
-        <constructor-arg ref=""/>
-        <property name="" ref=""/>
+        <property name="field" value="field_A"/>
+        <property name="dependencyAB_b" ref="noneConstructorCycleDependencyAB_B_P"/>
     </bean>
-    <bean id="" class="com.mimu.simple.spring.bean.cycledependency.NoneConstructorCycleDependencyAB_B"
+    <bean id="noneConstructorCycleDependencyAB_B_P"
+          class="com.mimu.simple.spring.bean.cycledependency.NoneConstructorCycleDependencyAB_B"
           scope="prototype">
-        <property name="" ref=""/>
+        <property name="field" value="field_B"/>
+        <property name="dependencyAB_a" ref="noneConstructorCycleDependencyAB_A_P"/>
     </bean>
 
-    <bean id="classBean" class="com.mimu.simple.spring.bean.ClassBean" factory-bean="" factory-method=""/>
+    <!-- spring factory bean  -->
+    <bean id="modelDemoFactoryBean" class="com.mimu.simple.spring.bean.factorybean.ModelDemoFactoryBean"/>
+
+    <!-- spring life cycle  -->
+    <bean id="lifeCycleBeanFactoryPostProcessor"
+          class="com.mimu.simple.spring.bean.lifecycle.LifeCycleBeanFactoryPostProcessor"/>
+    <bean id="lifeCycleBeanPostProcessor" class="com.mimu.simple.spring.bean.lifecycle.LifeCycleBeanPostProcessor"/>
+    <bean id="classBean" class="com.mimu.simple.spring.bean.lifecycle.ClassBean"/>
+
 
 </beans>

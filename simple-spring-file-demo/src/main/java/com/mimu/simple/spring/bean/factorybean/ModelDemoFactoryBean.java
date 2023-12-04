@@ -1,18 +1,19 @@
 package com.mimu.simple.spring.bean.factorybean;
 
-import com.mimu.simple.spring.bean.ClassBean;
+import com.mimu.simple.spring.bean.lifecycle.ClassBean;
 import org.springframework.beans.factory.FactoryBean;
 
-public class ModelDemoFactoryBean implements FactoryBean<ClassBean> {
+public class ModelDemoFactoryBean implements FactoryBean<ModelBean> {
     @Override
-    public ClassBean getObject() throws Exception {
-        ClassBean modelDemo = new ClassBean();
-        modelDemo.setName("field");
+    public ModelBean getObject() throws Exception {
+        ModelBean modelDemo = new ModelBean();
+        modelDemo.setFieldString("field string");
+        modelDemo.setFieldInteger(1);
         return modelDemo;
     }
 
     @Override
     public Class<?> getObjectType() {
-        return ClassBean.class;
+        return ModelBean.class;
     }
 }

@@ -10,4 +10,5 @@ public class NoneConstructorCycleDependencyAB_A {
     private String field;
     private NoneConstructorCycleDependencyAB_B dependencyAB_b;
 
+
 }
