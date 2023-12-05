@@ -57,6 +57,7 @@
           class="com.mimu.simple.spring.bean.lifecycle.LifeCycleBeanFactoryPostProcessor"/>
     <bean id="lifeCycleBeanPostProcessor" class="com.mimu.simple.spring.bean.lifecycle.LifeCycleBeanPostProcessor"/>
     <bean id="classBean" class="com.mimu.simple.spring.bean.lifecycle.ClassBean"/>
-
+    <bean id="person" class="com.mimu.simple.spring.bean.lifecycle.Person" init-method="customInit"
+          destroy-method="customDestory"/>
 
 </beans>
