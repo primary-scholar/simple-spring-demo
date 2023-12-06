@@ -16,6 +16,7 @@
 
     <modules>
         <module>simple-spring-file-lifecycle</module>
+        <module>simple-spring-file-demo</module>
     </modules>
 
     <properties>
