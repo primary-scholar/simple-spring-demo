@@ -1,6 +1,5 @@
-package com.mimu.simple.spring.bean.factorybean;
+package com.simple.spring.factorybean;
 
-import com.mimu.simple.spring.bean.lifecycle.ClassBean;
 import org.springframework.beans.factory.FactoryBean;
 
 public class ModelDemoFactoryBean implements FactoryBean<ModelBean> {

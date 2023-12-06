@@ -1,12 +1,12 @@
-package com.mimu.simple;
+package com.simple.spring;
 
 import com.alibaba.fastjson.JSONObject;
-import com.mimu.simple.spring.bean.lifecycle.ClassBean;
-import com.mimu.simple.spring.bean.cycledependency.ConstructorCycleDependencyAB_A;
-import com.mimu.simple.spring.bean.cycledependency.ConstructorCycleDependencyAB_B;
-import com.mimu.simple.spring.bean.cycledependency.NoneConstructorCycleDependencyAB_A;
-import com.mimu.simple.spring.bean.cycledependency.NoneConstructorCycleDependencyAB_B;
-import com.mimu.simple.spring.bean.factorybean.ModelDemoFactoryBean;
+import com.simple.spring.cycledependency.ConstructorCycleDependencyAB_A;
+import com.simple.spring.cycledependency.ConstructorCycleDependencyAB_B;
+import com.simple.spring.cycledependency.NoneConstructorCycleDependencyAB_A;
+import com.simple.spring.cycledependency.NoneConstructorCycleDependencyAB_B;
+import com.simple.spring.factorybean.ModelDemoFactoryBean;
+import com.simple.spring.lifecycle.ClassBean;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;

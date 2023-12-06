@@ -1,4 +1,4 @@
-package com.mimu.simple.spring.bean.cycledependency;
+package com.simple.spring.cycledependency;
 
 
 import lombok.Getter;

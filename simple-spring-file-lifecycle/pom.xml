@@ -7,10 +7,11 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>simple-spring-file-demo</artifactId>
+    <groupId>com.simple.spring</groupId>
+    <artifactId>simple-spring-file-lifecycle</artifactId>
     <packaging>jar</packaging>
 
-    <name>simple-spring-file-demo</name>
+    <name>simple-spring-file-lifecycle</name>
     <url>http://maven.apache.org</url>
 
     <properties>

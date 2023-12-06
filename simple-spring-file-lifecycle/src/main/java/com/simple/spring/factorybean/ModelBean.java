@@ -1,4 +1,4 @@
-package com.mimu.simple.spring.bean.factorybean;
+package com.simple.spring.factorybean;
 
 import lombok.Getter;
 import lombok.Setter;

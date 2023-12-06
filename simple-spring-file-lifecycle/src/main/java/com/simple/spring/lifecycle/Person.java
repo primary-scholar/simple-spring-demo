@@ -1,7 +1,5 @@
-package com.mimu.simple.spring.bean.lifecycle;
+package com.simple.spring.lifecycle;
 
-import lombok.Getter;
-import lombok.Setter;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.*;
 import org.springframework.context.ApplicationContext;

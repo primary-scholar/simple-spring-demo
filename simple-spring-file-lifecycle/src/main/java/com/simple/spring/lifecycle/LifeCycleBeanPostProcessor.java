@@ -1,4 +1,4 @@
-package com.mimu.simple.spring.bean.lifecycle;
+package com.simple.spring.lifecycle;
 
 import org.springframework.beans.BeansException;
 import org.springframework.beans.PropertyValues;

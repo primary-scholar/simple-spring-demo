@@ -1,9 +1,7 @@
-package com.mimu.simple.spring.bean.lifecycle;
+package com.simple.spring.lifecycle;
 
 import lombok.Getter;
 import lombok.Setter;
-
-import java.net.Inet4Address;
 
 @Setter
 @Getter

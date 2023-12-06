@@ -6,10 +6,10 @@
 
     <!-- spring life cycle  -->
     <bean id="lifeCycleBeanFactoryPostProcessor"
-          class="com.mimu.simple.spring.bean.lifecycle.LifeCycleBeanFactoryPostProcessor"/>
-    <bean id="lifeCycleBeanPostProcessor" class="com.mimu.simple.spring.bean.lifecycle.LifeCycleBeanPostProcessor"/>
-    <bean id="classBean" class="com.mimu.simple.spring.bean.lifecycle.ClassBean"/>
-    <bean id="person" class="com.mimu.simple.spring.bean.lifecycle.Person" init-method="customInit"
+          class="com.simple.spring.lifecycle.LifeCycleBeanFactoryPostProcessor"/>
+    <bean id="lifeCycleBeanPostProcessor" class="com.simple.spring.lifecycle.LifeCycleBeanPostProcessor"/>
+    <bean id="classBean" class="com.simple.spring.lifecycle.ClassBean"/>
+    <bean id="person" class="com.simple.spring.lifecycle.Person" init-method="customInit"
           destroy-method="customDestory"/>
 
 </beans>
