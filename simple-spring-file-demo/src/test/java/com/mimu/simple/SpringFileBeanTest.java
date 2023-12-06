@@ -7,7 +7,6 @@ import com.mimu.simple.spring.bean.cycledependency.ConstructorCycleDependencyAB_
 import com.mimu.simple.spring.bean.cycledependency.NoneConstructorCycleDependencyAB_A;
 import com.mimu.simple.spring.bean.cycledependency.NoneConstructorCycleDependencyAB_B;
 import com.mimu.simple.spring.bean.factorybean.ModelDemoFactoryBean;
-import com.mimu.simple.spring.bean.lifecycle.Person;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -63,16 +62,14 @@ public class SpringFileBeanTest {
 
     @Test
     public void beanCycleDependency_life_cycle_classBean_test() {
-        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("bean.xml");
+        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("lifecycle.xml");
         ClassBean classBean = applicationContext.getBean(ClassBean.class);
         System.out.println(JSONObject.toJSON(classBean));
     }
 
     @Test
     public void beanCycleDependency_life_cycle_person_test() {
-        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("bean.xml");
-        Person person = applicationContext.getBean(Person.class);
-        System.out.println(JSONObject.toJSON(person));
+        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("lifecycle.xml");
     }
 
 }
