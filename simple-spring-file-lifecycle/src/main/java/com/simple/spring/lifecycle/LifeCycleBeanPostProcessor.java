@@ -1,5 +1,7 @@
 package com.simple.spring.lifecycle;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.PropertyValues;
 import org.springframework.beans.factory.config.SmartInstantiationAwareBeanPostProcessor;
@@ -7,72 +9,64 @@ import org.springframework.beans.factory.config.SmartInstantiationAwareBeanPostP
 import java.lang.reflect.Constructor;
 
 public class LifeCycleBeanPostProcessor implements SmartInstantiationAwareBeanPostProcessor {
+    private static final Logger LOGGER = LoggerFactory.getLogger(LifeCycleBeanPostProcessor.class);
 
     public LifeCycleBeanPostProcessor() {
         super();
-        System.out.println("LifeCycleBeanPostProcessor constructor() invoke... ");
+        LOGGER.info("LifeCycleBeanPostProcessor constructor() invoke... ");
     }
 
     @Override
     public Class<?> predictBeanType(Class<?> beanClass, String beanName) throws BeansException {
-        String format = String.format("LifeCycleBeanPostProcessor predictBeanType() invoke... beanClass %s,beanName %s", beanClass.getClass(), beanName);
-        System.out.println(format);
+        LOGGER.info("LifeCycleBeanPostProcessor predictBeanType() invoke... beanClass {},beanName {}", beanClass, beanName);
         return SmartInstantiationAwareBeanPostProcessor.super.predictBeanType(beanClass, beanName);
     }
 
     @Override
     public Class<?> determineBeanType(Class<?> beanClass, String beanName) throws BeansException {
-        String format = String.format("LifeCycleBeanPostProcessor determineBeanType() invoke... beanClass %s,beanName %s", beanClass.getClass(), beanName);
-        System.out.println(format);
+        LOGGER.info("LifeCycleBeanPostProcessor determineBeanType() invoke... beanClass {},beanName {}", beanClass, beanName);
         return SmartInstantiationAwareBeanPostProcessor.super.determineBeanType(beanClass, beanName);
     }
 
     @Override
     public Constructor<?>[] determineCandidateConstructors(Class<?> beanClass, String beanName) throws BeansException {
-        String format = String.format("LifeCycleBeanPostProcessor determineCandidateConstructors() invoke... beanClass %s,beanName %s", beanClass.getClass(), beanName);
-        System.out.println(format);
+        LOGGER.info("LifeCycleBeanPostProcessor determineCandidateConstructors() invoke... beanClass {},beanName {}", beanClass, beanName);
         return SmartInstantiationAwareBeanPostProcessor.super.determineCandidateConstructors(beanClass, beanName);
     }
 
     @Override
     public Object getEarlyBeanReference(Object bean, String beanName) throws BeansException {
-        String format = String.format("LifeCycleBeanPostProcessor getEarlyBeanReference() invoke... bean %s,beanName %s", bean.getClass(), beanName);
-        System.out.println(format);
+        LOGGER.info("LifeCycleBeanPostProcessor getEarlyBeanReference() invoke... bean {},beanName {}", bean.getClass(), beanName);
         return SmartInstantiationAwareBeanPostProcessor.super.getEarlyBeanReference(bean, beanName);
     }
 
     @Override
     public Object postProcessBeforeInstantiation(Class<?> beanClass, String beanName) throws BeansException {
-        String format = String.format("LifeCycleBeanPostProcessor postProcessBeforeInstantiation() invoke... beanClass %s,beanName %s", beanClass.getClass(), beanName);
-        System.out.println(format);
+        LOGGER.info("LifeCycleBeanPostProcessor postProcessBeforeInstantiation() invoke... beanClass {},beanName {}", beanClass.getClass(), beanName);
         return SmartInstantiationAwareBeanPostProcessor.super.postProcessBeforeInstantiation(beanClass, beanName);
     }
 
     @Override
     public boolean postProcessAfterInstantiation(Object bean, String beanName) throws BeansException {
-        String format = String.format("LifeCycleBeanPostProcessor postProcessAfterInstantiation() invoke... bean %s,beanName %s", bean.getClass(), beanName);
-        System.out.println(format);
+        LOGGER.info("LifeCycleBeanPostProcessor postProcessAfterInstantiation() invoke... bean {},beanName {}", bean.getClass(), beanName);
         return SmartInstantiationAwareBeanPostProcessor.super.postProcessAfterInstantiation(bean, beanName);
     }
 
     @Override
     public PropertyValues postProcessProperties(PropertyValues pvs, Object bean, String beanName) throws BeansException {
-        String format = String.format("LifeCycleBeanPostProcessor postProcessProperties() invoke... pvs %s,bean %s,beanName %s", pvs, bean.getClass(), beanName);
-        System.out.println(format);
+        LOGGER.info("LifeCycleBeanPostProcessor postProcessProperties() invoke... pvs {},bean {},beanName {}", pvs, bean.getClass(), beanName);
         return SmartInstantiationAwareBeanPostProcessor.super.postProcessProperties(pvs, bean, beanName);
     }
 
     @Override
     public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
-        String format = String.format("LifeCycleBeanPostProcessor postProcessBeforeInitialization() invoke... bean %s,beanName %s", bean.getClass(), beanName);
-        System.out.println(format);
+        LOGGER.info("LifeCycleBeanPostProcessor postProcessBeforeInitialization() invoke... bean {},beanName {}", bean.getClass(), beanName);
         return SmartInstantiationAwareBeanPostProcessor.super.postProcessBeforeInitialization(bean, beanName);
     }
 
     @Override
     public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
-        String format = String.format("LifeCycleBeanPostProcessor postProcessAfterInitialization() invoke... bean %s,beanName %s", bean.getClass(), beanName);
-        System.out.println(format);
+        LOGGER.info("LifeCycleBeanPostProcessor postProcessAfterInitialization() invoke... bean {},beanName {}", bean.getClass(), beanName);
         return SmartInstantiationAwareBeanPostProcessor.super.postProcessAfterInitialization(bean, beanName);
     }
 }

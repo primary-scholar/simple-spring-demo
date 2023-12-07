@@ -1,5 +1,7 @@
 package com.simple.spring.lifecycle;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
@@ -9,9 +11,11 @@ import org.springframework.beans.factory.support.BeanDefinitionRegistryPostProce
 import java.util.Objects;
 
 public class LifeCycleBeanFactoryPostProcessor implements BeanDefinitionRegistryPostProcessor {
+    private static final Logger LOGGER = LoggerFactory.getLogger(LifeCycleBeanFactoryPostProcessor.class);
+
     @Override
     public void postProcessBeanDefinitionRegistry(BeanDefinitionRegistry registry) throws BeansException {
-        System.out.println("LifeCycleBeanFactoryPostProcessor postProcessBeanDefinitionRegistry() invoke...");
+        LOGGER.info("LifeCycleBeanFactoryPostProcessor postProcessBeanDefinitionRegistry() invoke...");
         BeanDefinition classBeanDefinition = registry.getBeanDefinition("classBean");
         ClassBean.ClassStudentBean classStudentBean = new ClassBean.ClassStudentBean();
         classStudentBean.setName("student name");
@@ -21,10 +25,10 @@ public class LifeCycleBeanFactoryPostProcessor implements BeanDefinitionRegistry
 
     @Override
     public void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory) throws BeansException {
-        System.out.println("LifeCycleBeanFactoryPostProcessor postProcessBeanFactory() invoke...");
+        LOGGER.info("LifeCycleBeanFactoryPostProcessor postProcessBeanFactory() invoke...");
         BeanDefinition definition = beanFactory.getBeanDefinition("person");
         if (Objects.nonNull(definition)) {
-            System.out.println("LifeCycleBeanFactoryPostProcessor postProcessBeanFactory() invoke... beanDefinition person");
+            LOGGER.info("LifeCycleBeanFactoryPostProcessor postProcessBeanFactory() invoke... beanDefinition person");
             definition.getPropertyValues().addPropertyValue("phone", 123);
         }
     }
