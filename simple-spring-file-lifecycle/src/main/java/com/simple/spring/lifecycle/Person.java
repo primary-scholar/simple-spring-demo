@@ -1,5 +1,7 @@
 package com.simple.spring.lifecycle;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.*;
 import org.springframework.context.ApplicationContext;
@@ -8,17 +10,16 @@ import org.springframework.context.ResourceLoaderAware;
 import org.springframework.core.io.ResourceLoader;
 
 public class Person implements BeanFactoryAware, BeanNameAware, InitializingBean, ResourceLoaderAware, ApplicationContextAware, DisposableBean {
-
+    private static final Logger LOGGER = LoggerFactory.getLogger(Person.class);
     private String name;
-    private int phone;
     private String beanName;
-
+    private Integer phone;
     private ApplicationContext applicationContext;
     private ResourceLoader resourceLoader;
     private BeanFactory beanFactory;
 
     public Person() {
-        System.out.println("Person constructor() invoke...");
+        LOGGER.info("Person constructor() invoke...");
     }
 
     public String getName() {
@@ -26,59 +27,59 @@ public class Person implements BeanFactoryAware, BeanNameAware, InitializingBean
     }
 
     public void setName(String name) {
-        System.out.println("Person setName() invoke...");
+        LOGGER.info("Person setName() invoke...");
         this.name = name;
     }
 
-    public int getPhone() {
+    public Integer getPhone() {
         return phone;
     }
 
-    public void setPhone(int phone) {
-        System.out.println("Person setPhone() invoke...");
+    public void setPhone(Integer phone) {
+        LOGGER.info("Person setPhone() invoke...");
         this.phone = phone;
     }
 
     @Override
     public void setBeanFactory(BeanFactory beanFactory) throws BeansException {
-        System.out.println("Person BeanFactoryAware setBeanFactory() invoke...");
+        LOGGER.info("Person BeanFactoryAware setBeanFactory() invoke...");
         this.beanFactory = beanFactory;
     }
 
     @Override
     public void setBeanName(String name) {
-        System.out.println("Person BeanNameAware setBeanName() invoke...");
+        LOGGER.info("Person BeanNameAware setBeanName() invoke...");
         this.beanName = name;
     }
 
     @Override
     public void destroy() throws Exception {
-        System.out.println("Person DisposableBean destroy() invoke...");
+        LOGGER.info("Person DisposableBean destroy() invoke...");
     }
 
     @Override
     public void afterPropertiesSet() throws Exception {
-        System.out.println("Person InitializingBean afterPropertiesSet() invoke...");
+        LOGGER.info("Person InitializingBean afterPropertiesSet() invoke...");
     }
 
     @Override
     public void setResourceLoader(ResourceLoader resourceLoader) {
         this.resourceLoader = resourceLoader;
-        System.out.println("Person ResourceLoaderAware setResourceLoader() invoke...");
+        LOGGER.info("Person ResourceLoaderAware setResourceLoader() invoke...");
     }
 
     @Override
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
         this.applicationContext = applicationContext;
-        System.out.println("Person ApplicationContextAware setApplicationContext() invoke...");
+        LOGGER.info("Person ApplicationContextAware setApplicationContext() invoke...");
     }
 
     public void customInit() {
-        System.out.println("Person init-method invoke...");
+        LOGGER.info("Person init-method invoke...");
     }
 
     public void customDestory() {
-        System.out.println("Person destory-method invoke...");
+        LOGGER.info("Person destory-method invoke...");
     }
 
 }
