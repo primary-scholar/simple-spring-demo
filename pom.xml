@@ -17,7 +17,8 @@
     <modules>
         <module>simple-spring-file-lifecycle</module>
         <module>simple-spring-file-demo</module>
-        <module>spring-spring-annotation-lifecycle</module>
+        <module>simple-spring-annotation-lifecycle</module>
+        <module>simple-spring-annotation-demo</module>
     </modules>
 
     <properties>
