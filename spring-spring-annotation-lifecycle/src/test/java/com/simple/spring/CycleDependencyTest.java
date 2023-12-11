@@ -7,9 +7,12 @@ import com.simple.spring.cycledependency.nonconstructor.autowired.NonConstructor
 import com.simple.spring.cycledependency.nonconstructor.multiautowired.MultiAutowiredConfig;
 import org.junit.Assert;
 import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class CycleDependencyTest {
+    private static final Logger LOGGER = LoggerFactory.getLogger(CycleDependencyTest.class);
 
     @Test
     public void nonConstructorCycleDependencyTest() {
@@ -27,7 +30,7 @@ public class CycleDependencyTest {
         String[] singletonNames = applicationContext.getBeanFactory().getSingletonNames();
         for (String singletonName : singletonNames) {
             Object bean = applicationContext.getBean(singletonName);
-            System.out.println(JSONObject.toJSON(bean));
+            LOGGER.info("definitionName {},bean {}", singletonNames, JSONObject.toJSON(bean));
             Assert.assertNotNull(bean);
         }
     }
@@ -38,7 +41,7 @@ public class CycleDependencyTest {
         String[] singletonNames = applicationContext.getBeanFactory().getSingletonNames();
         for (String singletonName : singletonNames) {
             Object bean = applicationContext.getBean(singletonName);
-            System.out.println(JSONObject.toJSON(bean));
+            LOGGER.info("definitionName {},bean {}", singletonNames, JSONObject.toJSON(bean));
             Assert.assertNotNull(bean);
         }
     }

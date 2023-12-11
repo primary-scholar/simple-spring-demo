@@ -23,7 +23,7 @@ public class SimpleConditionConfig {
         @Bean
         @Conditional({SimpleConditionA.class, SimpleConditionB.class})
         public ObjectBean conditionAB() {
-            return ObjectBean.builder().conditionDesc("SimpleConditionA and  return true").build();
+            return ObjectBean.builder().conditionDesc("SimpleConditionA and SimpleConditionB return true").build();
         }
     }
 
