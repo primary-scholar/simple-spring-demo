@@ -10,7 +10,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 public class SimpleConditionTest {
     private static final Logger LOGGER = LoggerFactory.getLogger(SimpleConditionTest.class);
 
-    @Test/**/
+    @Test
     public void simpleConditionTest() {
         AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(SimpleConditionConfig.class);
         String[] definitionNames = applicationContext.getBeanDefinitionNames();

@@ -1,7 +1,6 @@
 package com.simple.spring.cycledependency.nonconstructor.multiautowired;
 
 import lombok.Getter;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
